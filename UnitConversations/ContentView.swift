@@ -17,7 +17,7 @@ struct ContentView: View {
         var temperatureInCelsius = 0.0
         
         if inputUnit == "Fahreneit" {
-            temperatureInCelsius = (inputValue - 32) / 1.8
+            temperatureInCelsius = (inputValue - 32) * 5/9
         }
         else if inputUnit == "Kelvin" {
             temperatureInCelsius = inputValue - 273.15
@@ -27,7 +27,7 @@ struct ContentView: View {
         }
         // 2.Phase: Conversion from celsius to other units.
         if outputUnit == "Fahreneit" {
-            return (temperatureInCelsius * 1.8) + 32
+            return (temperatureInCelsius * 9/5) + 32
         }
         else if outputUnit == "Kelvin" {
             return  temperatureInCelsius + 273.15
@@ -63,7 +63,7 @@ struct ContentView: View {
                 Section {
                     Text(output, format: .number)
                 } header: {
-                    Text("Outcome")
+                    Text("Result")
                 }
             }
             .navigationTitle("WeConvert")
