@@ -9,14 +9,14 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var inputValue = 0.0
-    @State private var inputUnit = "Fahreneit" // We got the user's temperature unit.
-    @State private var outputUnit = "Fahreneit" // We got the temperature unit wanted to convert.
-    @State private var Units = ["Fahreneit", "Celsius", "Kelvin"]
+    @State private var inputUnit = "Fahrenheit" // We got the user's temperature unit.
+    @State private var outputUnit = "Fahrenheit" // We got the temperature unit wanted to convert.
+    @State private var Units = ["Fahrenheit", "Celsius", "Kelvin"]
     
     var output: Double { // 1.Phase: The entered segments will be converted to Celsius.
         var temperatureInCelsius = 0.0
         
-        if inputUnit == "Fahreneit" {
+        if inputUnit == "Fahrenheit" {
             temperatureInCelsius = (inputValue - 32) * 5/9
         }
         else if inputUnit == "Kelvin" {
@@ -26,7 +26,7 @@ struct ContentView: View {
             temperatureInCelsius = inputValue
         }
         // 2.Phase: Conversion from celsius to other units.
-        if outputUnit == "Fahreneit" {
+        if outputUnit == "Fahrenheit" {
             return (temperatureInCelsius * 9/5) + 32
         }
         else if outputUnit == "Kelvin" {
