@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var inputValue = 0.0 // kullanıcıdan değeri aldık.
-    @State private var inputUnit = "Fahreneit" // kullanıcının sıcaklık birimini aldık.
-    @State private var outputUnit = "Fahreneit" // dönüşmesini istediği sıcaklık birimini aldık.
+    @State private var inputValue = 0.0
+    @State private var inputUnit = "Fahreneit" // We got the user's temperature unit.
+    @State private var outputUnit = "Fahreneit" // We got the temperature unit wanted to convert.
     @State private var Units = ["Fahreneit", "Celsius", "Kelvin"]
     
-    var output: Double { // 1. aşama = Girilen ınput celsiusa çevrilicek.
+    var output: Double { // 1.Phase: The entered segments will be converted to Celsius.
         var temperatureInCelsius = 0.0
         
         if inputUnit == "Fahreneit" {
@@ -25,7 +25,7 @@ struct ContentView: View {
         else {
             temperatureInCelsius = inputValue
         }
-        // 2.aşama = celsiustan diğer birimlere çevirme.
+        // 2.Phase: Conversion from celsius to other units.
         if outputUnit == "Fahreneit" {
             return (temperatureInCelsius * 1.8) + 32
         }
